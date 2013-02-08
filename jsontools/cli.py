@@ -68,6 +68,18 @@ def colorize(arguments, document):
     as_json = json.dumps(document, indent=1)
     print(JSON_NAME_MATCHER.sub('"{0}":'.format(color_wrap(r'\1', 'bright green')), as_json))
 
+def slice(arguments, document):
+    keep = set(arguments.KEY_NAME)
+    def _(root):
+        if isinstance(document, dict):
+            return {k:v for k, v in document.iteritems() if k in keep}
+        elif isinstance(document, list):
+            return map(_, root)
+        else:
+            return root
+    print json.dumps(_(document))
+
+
 def main():
     arguments = docopt(__doc__, version="{0} {1}".format(__package_name__, __package_version__))
     document = json.loads(clint.piped_in())
