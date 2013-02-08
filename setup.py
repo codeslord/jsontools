@@ -16,5 +16,5 @@ setup(
             'json = jsontools.cli:main'
         ]
     },
-    requires=['docopt', 'clint'],
+    requires=['docopt', 'clint', 'pystache'],
 )

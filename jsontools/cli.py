@@ -1,11 +1,12 @@
 """JSON Tools
 
 Usage:
-    json [options] pluck <json_path>
-    json [options] slice [<key_name>...]
+    json [options] pluck JSON_PATH
+    json [options] slice [KEY_NAME...]
     json [options] colorize
+    json [options] render TEMPLATE
 
-Handy dandy JSON toolkit to works on streams of JSON, most often from curl,
+Handy dandy JSON toolkit to works on JSON documents, most often from curl,
 but also handy when piped from local files.
 
 Commands:
@@ -13,15 +14,18 @@ Commands:
     slice       Keep only the specified key names in a document,
                 discarding the rest. This will recurse the whole document.
     colorize    Pretty print a document, with colors, making it easier to read.
+    render      Run the document through a mustache template
 
 Parameters:
-    json_path   Use .key and [index] to pick out a single subdocument,
+    JSON_PATH   Use .key and [index] to pick out a single subdocument,
                 just pretend it is what you would type in JavaScript and
                 you will likely get it right.
                 ex: {'hello': {'a': 'world'}} with .hello.a
                     will give you 'world'
                     .hello will give you {'a': 'world}
-    key_name    Just the string name of a key inside your document
+    KEY_NAME    Just the string name of a key inside your document
+    TEMPLATE    File path to a mustache template, the document context is
+                supplied as a root variable called document
 
 
 Options:
@@ -33,13 +37,17 @@ import clint
 from docopt import docopt
 from jsontools.version import __package_version__, __package_name__
 from jsontools.openstruct import OpenStruct
+import pystache
+import json
 
-def slice(arguments):
-    for stream in [clint.piped_in] + map(open, arguments.file):
-        print stream
+def render(arguments):
+    content = clint.piped_in()
+    print(pystache.render(open(arguments.TEMPLATE).read(), {'document': json.loads(content)}).strip())
 
-if __name__ == '__main__':
+def main():
     arguments = docopt(__doc__, version="{0} {1}".format(__package_name__, __package_version__))
-    print arguments
+    for key in arguments.keys():
+        if key in globals() and arguments[key]:
+            globals()[key](OpenStruct(arguments))
 
 

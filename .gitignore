@@ -1,2 +1,4 @@
 build
 *.pyc
+JSON_Tools.egg-info
+dist
