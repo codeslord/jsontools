@@ -34,11 +34,18 @@ Options:
 """
 
 import clint
+from clint.textui import colored
 from docopt import docopt
 from jsontools.version import __package_version__, __package_name__
 from jsontools.openstruct import OpenStruct
+from jsontools.colors import color_wrap
 import pystache
 import json
+import sys
+import re
+
+JSON_NAME_MATCHER = re.compile(r'"([^"]*)":')
+
 
 def render(arguments, document):
     print(pystache.render(open(arguments.TEMPLATE).read(), {'document': document}).strip())
@@ -47,9 +54,19 @@ def pluck(arguments, document):
     target = OpenStruct(document)
     plucked = eval("target{0}".format(arguments.JSON_PATH))
     if isinstance(plucked, OpenStruct):
-        print(json.dumps(repr(plucked)))
+        print(json.dumps(plucked.__wrap__))
+    elif isinstance(plucked, unicode):
+        print(plucked.encode('utf-8'))
+    elif isinstance(plucked, str):
+        print(plucked)
     else:
         print(json.dumps(plucked))
+
+def colorize(arguments, document):
+    if document == {}:
+        return ''
+    as_json = json.dumps(document, indent=1)
+    print(JSON_NAME_MATCHER.sub('"{0}":'.format(color_wrap(r'\1', 'bright green')), as_json))
 
 def main():
     arguments = docopt(__doc__, version="{0} {1}".format(__package_name__, __package_version__))
