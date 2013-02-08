@@ -40,14 +40,22 @@ from jsontools.openstruct import OpenStruct
 import pystache
 import json
 
-def render(arguments):
-    content = clint.piped_in()
-    print(pystache.render(open(arguments.TEMPLATE).read(), {'document': json.loads(content)}).strip())
+def render(arguments, document):
+    print(pystache.render(open(arguments.TEMPLATE).read(), {'document': document}).strip())
+
+def pluck(arguments, document):
+    target = OpenStruct(document)
+    plucked = eval("target{0}".format(arguments.JSON_PATH))
+    if isinstance(plucked, OpenStruct):
+        print(json.dumps(repr(plucked)))
+    else:
+        print(json.dumps(plucked))
 
 def main():
     arguments = docopt(__doc__, version="{0} {1}".format(__package_name__, __package_version__))
+    document = json.loads(clint.piped_in())
     for key in arguments.keys():
         if key in globals() and arguments[key]:
-            globals()[key](OpenStruct(arguments))
+            globals()[key](OpenStruct(arguments), document)
 
 

@@ -1,24 +1,36 @@
+
+def value_wrap(v):
+    if isinstance(v, dict):
+        return OpenStruct(v)
+    elif isinstance(v, list):
+        return map(value_wrap, v)
+    else:
+        return v
+
+
 class OpenStruct:
     """
     Borrowing an idea from the Ruby folks, this makes a dictionary allow
     . access rather than [] access.
     """
-    def __init__(self, dic):
-        self.__dict__.update(dic)
-        #recurse
-        for k, v in dic.iteritems():
-            if isinstance(v, dict):
-                self.__dict__[k] = OpenStruct(v)
+    def __init__(self, wrap):
+        #lazy style, easier to write too
+        self.__wrap__ = wrap
 
     def __getattr__(self, i):
-        if i in self.__dict__:
-            return self.__dict__[i]
+        if i in self.__wrap__:
+            return value_wrap(self.__wrap__[i])
         else:
-            return OpenStruct({})
+            return None
 
-    def __setattr__(self, i, v):
-        if i in self.__dict__:
-            self.__dict__[i] = v
-        else:
-            self.__dict__.update({i: v})
-        return v
+    def __getitem__(self, i):
+        return value_wrap(self.__wrap__[i])
+
+    def __str__(self):
+        return self.__wrap__.__str__()
+
+    def __repr__(self):
+        return self.__wrap__.__repr__()
+
+
+
