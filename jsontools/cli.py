@@ -3,17 +3,18 @@
 Usage:
     json [options] pluck JSON_PATH
     json [options] slice [KEY_NAME...]
-    json [options] colorize
+    json [options] colorize [SPACES]
+    json [options] indent [SPACES]
     json [options] render TEMPLATE
 
-Handy dandy JSON toolkit to works on JSON documents, most often from curl,
-but also handy when piped from local files.
+A command line toolkit for slicing and dicing JSON documents.
 
 Commands:
-    pluck       Pluck out a sub-document with a . and [] notation path.
+    pluck       Pluck out a sub-document with a . and [] notation path
     slice       Keep only the specified key names in a document,
-                discarding the rest. This will recurse the whole document.
-    colorize    Pretty print a document, with colors, making it easier to read.
+                discarding the rest. This will recurse the whole document
+    colorize    Pretty print a document, with colors, making it easier to read
+    indent      Just indent a JSON stream to be human readable
     render      Run the document through a mustache template
 
 Parameters:
@@ -26,6 +27,7 @@ Parameters:
     KEY_NAME    Just the string name of a key inside your document
     TEMPLATE    File path to a mustache template, the document context is
                 supplied as a root variable called document
+    SPACES      Integer number of spaces to indent
 
 
 Options:
@@ -65,16 +67,22 @@ def pluck(arguments, document):
 def colorize(arguments, document):
     if document == {}:
         return ''
-    as_json = json.dumps(document, indent=1)
+    as_json = json.dumps(document, indent=(int(arguments.SPACES) if arguments.SPACES else 1))
     print(JSON_NAME_MATCHER.sub('"{0}":'.format(color_wrap(r'\1', 'bright green')), as_json))
+
+def indent(arguments, document):
+    if document == {}:
+        return ''
+    as_json = json.dumps(document, indent=(int(arguments.SPACES) if arguments.SPACES else 1))
+    print as_json
 
 def slice(arguments, document):
     keep = set(arguments.KEY_NAME)
     def _(root):
-        if isinstance(document, dict):
-            return {k:v for k, v in document.iteritems() if k in keep}
-        elif isinstance(document, list):
-            return map(_, root)
+        if isinstance(root, dict):
+            return {k:v for k, v in root.iteritems() if k in keep}
+        elif isinstance(root, list):
+            return [_(v) for v in root]
         else:
             return root
     print json.dumps(_(document))

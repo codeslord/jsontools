@@ -1,0 +1,56 @@
+[
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/f5c8c89748684821405a1668ca7f103f?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "CRM",
+    "url": "http://github.glgroup.com/api/v3/orgs/CRM",
+    "id": 27
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/b2dfc8080245d21f5d70b5758c6b0768?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "InfrastructureDeliveryTeam",
+    "url": "http://github.glgroup.com/api/v3/orgs/InfrastructureDeliveryTeam",
+    "id": 26
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/386f95c0381662ef8908e76252e93856?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "DataDeliveryTeam",
+    "url": "http://github.glgroup.com/api/v3/orgs/DataDeliveryTeam",
+    "id": 25
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/0585c43d453f778015aad1bf7602ca13?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "FinanceDeliveryTeam",
+    "url": "http://github.glgroup.com/api/v3/orgs/FinanceDeliveryTeam",
+    "id": 28
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/32feb3582d82c32402590a7dc6e43adf?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "Media",
+    "url": "http://github.glgroup.com/api/v3/orgs/Media",
+    "id": 34
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/b97c288cac87cec1884f09d890dc5f6c?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "Operations",
+    "url": "http://github.glgroup.com/api/v3/orgs/Operations",
+    "id": 16
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/33cd962115f847e4f04444c120287ef0?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "CoreProductDelivery",
+    "url": "http://github.glgroup.com/api/v3/orgs/CoreProductDelivery",
+    "id": 7
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/aed5746a83f34fe3d60860150f45a78a?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "Deploy",
+    "url": "http://github.glgroup.com/api/v3/orgs/Deploy",
+    "id": 6
+  },
+  {
+    "avatar_url": "https://secure.gravatar.com/avatar/9e5cd037031df0351b80e573232253dc?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png",
+    "login": "SearchDeliveryTeam",
+    "url": "http://github.glgroup.com/api/v3/orgs/SearchDeliveryTeam",
+    "id": 11
+  }
+]

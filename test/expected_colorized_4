@@ -1,0 +1,56 @@
+[
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/CRM", 
+        "[1;32mlogin[0m": "CRM", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/f5c8c89748684821405a1668ca7f103f?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 27
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/InfrastructureDeliveryTeam", 
+        "[1;32mlogin[0m": "InfrastructureDeliveryTeam", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/b2dfc8080245d21f5d70b5758c6b0768?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 26
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/DataDeliveryTeam", 
+        "[1;32mlogin[0m": "DataDeliveryTeam", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/386f95c0381662ef8908e76252e93856?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 25
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/FinanceDeliveryTeam", 
+        "[1;32mlogin[0m": "FinanceDeliveryTeam", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/0585c43d453f778015aad1bf7602ca13?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 28
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/Media", 
+        "[1;32mlogin[0m": "Media", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/32feb3582d82c32402590a7dc6e43adf?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 34
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/Operations", 
+        "[1;32mlogin[0m": "Operations", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/b97c288cac87cec1884f09d890dc5f6c?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 16
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/CoreProductDelivery", 
+        "[1;32mlogin[0m": "CoreProductDelivery", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/33cd962115f847e4f04444c120287ef0?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 7
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/Deploy", 
+        "[1;32mlogin[0m": "Deploy", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/aed5746a83f34fe3d60860150f45a78a?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 6
+    }, 
+    {
+        "[1;32murl[0m": "http://github.glgroup.com/api/v3/orgs/SearchDeliveryTeam", 
+        "[1;32mlogin[0m": "SearchDeliveryTeam", 
+        "[1;32mavatar_url[0m": "https://secure.gravatar.com/avatar/9e5cd037031df0351b80e573232253dc?d=http://github.glgroup.com%2Fimages%2Fgravatars%2Fgravatar-org-420.png", 
+        "[1;32mid[0m": 11
+    }
+]
