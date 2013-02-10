@@ -50,8 +50,11 @@ JSON_NAME_MATCHER = re.compile(r'"([^"]*)":')
 
 
 def input_content():
-    if select.select([sys.stdin,],[],[],0.0)[0]:
-        return json.loads(sys.stdin.read())
+    if select.select([sys.stdin,],[],[],0)[0]:
+        try:
+            return json.load(sys.stdin)
+        except ValueError:
+            return {}
     else:
         return {}
 
