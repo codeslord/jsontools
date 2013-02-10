@@ -35,8 +35,6 @@ Options:
   --version     Show version.
 """
 
-import clint
-from clint.textui import colored
 from docopt import docopt
 from jsontools.version import __package_version__, __package_name__
 from jsontools.openstruct import OpenStruct
@@ -45,12 +43,24 @@ import pystache
 import json
 import sys
 import re
+import select
+import os
 
 JSON_NAME_MATCHER = re.compile(r'"([^"]*)":')
 
 
+def input_content():
+    if select.select([sys.stdin,],[],[],0.0)[0]:
+        return json.loads(sys.stdin.read())
+    else:
+        return {}
+
 def render(arguments, document):
-    print(pystache.render(open(arguments.TEMPLATE).read(), {'document': document}).strip())
+    print(pystache.render(open(arguments.TEMPLATE).read(),
+        {
+            'document': document,
+            'environment': {k:v for k, v in os.environ.iteritems()}
+        }).strip())
 
 def pluck(arguments, document):
     target = OpenStruct(document)
@@ -87,10 +97,9 @@ def slice(arguments, document):
             return root
     print json.dumps(_(document))
 
-
 def main():
     arguments = docopt(__doc__, version="{0} {1}".format(__package_name__, __package_version__))
-    document = json.loads(clint.piped_in())
+    document = input_content()
     for key in arguments.keys():
         if key in globals() and arguments[key]:
             globals()[key](OpenStruct(arguments), document)

@@ -8,6 +8,8 @@ test: install
 	$(DIFF) test/.scratch test/expected_pluck
 	cat test/doc.json | json render test/urls.mustache > test/.scratch
 	$(DIFF) test/.scratch test/expected_urls
+	json render test/env.mustache > test/.scratch
+	$(DIFF) test/.scratch test/expected_env
 	cat test/doc.json | json slice login id > test/.scratch
 	$(DIFF) test/.scratch test/expected_slice
 	cat test/doc.json | json indent > test/.scratch
